@@ -6,10 +6,10 @@ const usuarios = [
 ];
 
 let accion = "";
-let realizarNuevamente = ""; 
+let realizarNuevamente = "";
 
 while (accion !== "SALIR") {
-   accion = prompt(`¡Bienvenido!
+  accion = prompt(`¡Bienvenido!
 Por favor, elija una de las siguientes operaciones:
 - AGREGAR un usuario
 - OBTENER un usuario
@@ -17,33 +17,56 @@ Por favor, elija una de las siguientes operaciones:
 - MODIFICAR un usuario
 - ELIMINAR un usuario
 - SALIR del programa`);
-do {
-  if (accion.toUpperCase() === "AGREGAR") {
-    let nombreIngresado = prompt("Por favor ingrese el nombre");
-    let telefonoIngresado = prompt("Por favor ingrese el número de teléfono");
-    let emailIngresado = prompt("Por favor ingrese el e-mail");
-    let usuarioAAgregar = [`${usuarios.length}`, nombreIngresado, telefonoIngresado, emailIngresado];
-    let confirmacionUsuarioAAgregar = prompt(`Nuevo usuario ingresado: 
+  do {
+    if (accion.toUpperCase() === "AGREGAR") {
+      let nombreIngresado = prompt("Por favor ingrese el nombre");
+      let telefonoIngresado = prompt("Por favor ingrese el número de teléfono");
+      let emailIngresado = prompt("Por favor ingrese el e-mail");
+      let usuarioAAgregar = [
+        `${usuarios.length}`,
+        nombreIngresado,
+        telefonoIngresado,
+        emailIngresado
+      ];
+      let confirmacionUsuarioAAgregar = prompt(`Nuevo usuario ingresado: 
       - ${nombreIngresado} 
       - ${telefonoIngresado} 
       - ${emailIngresado} 
       ¿Desea confirmar la operación?`);
-    if (confirmacionUsuarioAAgregar.toUpperCase() === "SI") {
-      usuarios.push(usuarioAAgregar);
-      console.log(usuarios)
-      alert("La operación ha sido exitosa");
+      if (confirmacionUsuarioAAgregar.toUpperCase() === "SI") {
+        usuarios.push(usuarioAAgregar);
+        alert("La operación ha sido exitosa");
+      }
+      if (confirmacionUsuarioAAgregar.toUpperCase() === "NO") {
+        alert("La operación se ha cancelado");
+      }
+      realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?");
     }
-    if (confirmacionUsuarioAAgregar.toUpperCase() === "NO") {
-      alert("La operación se ha cancelado");
+  } while (realizarNuevamente.toUpperCase() !== "NO");
+
+    if (accion.toUpperCase() === "OBTENER") {
+      let datoABuscar = prompt(`Selecciona una opción de búsqueda
+    - ID
+    - NOMBRE
+    - TELEFONO
+    - EMAIL
+    `);
+      if (datoABuscar.toUpperCase() === "ID") {
+        let idABuscar = prompt("Ingrese el ID a buscar");
+        for (let i = 0; i < usuarios.length; i++) {
+          for (let j = 0; j < usuarios[i].length; j++) {
+            if (idABuscar === usuarios[i][0]) {
+              alert(`Los datos del usuario son:
+            ${usuarios[i][j]}`);
+              break;
+            }
+          }
+        }
+      }
     }
-    realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?")
-  }
-}
-while (realizarNuevamente.toUpperCase() !== "NO")
 
   if (accion.toUpperCase() === "SALIR") {
     alert("¡Gracias por visitarnos!");
     break;
-  
-}
+  }
 }
