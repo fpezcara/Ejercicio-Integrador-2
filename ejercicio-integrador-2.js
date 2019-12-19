@@ -41,9 +41,12 @@ Por favor, elija una de las siguientes operaciones:
         alert("La operación se ha cancelado");
       }
       realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?");
+      
     }
+    
   } while (realizarNuevamente.toUpperCase() !== "NO");
 
+  do {
     if (accion.toUpperCase() === "OBTENER") {
       let datoABuscar = prompt(`Selecciona una opción de búsqueda
     - ID
@@ -55,15 +58,65 @@ Por favor, elija una de las siguientes operaciones:
         let idABuscar = prompt("Ingrese el ID a buscar");
         for (let i = 0; i < usuarios.length; i++) {
           for (let j = 0; j < usuarios[i].length; j++) {
-            if (idABuscar === usuarios[i][0]) {
+            if (idABuscar === usuarios[i][j]) {
               alert(`Los datos del usuario son:
-            ${usuarios[i][j]}`);
-              break;
+            - ID: ${usuarios[i][0]}
+            - NOMBRE: ${usuarios[i][1]}
+            - TELÉFONO: ${usuarios[i][2]}
+            - EMAIL: ${usuarios[i][3]}`);
             }
           }
         }
       }
+      else if (datoABuscar.toUpperCase() === "NOMBRE") {
+        let nombreABuscar = prompt("Ingrese el NOMBRE a buscar");
+        for (let i = 0; i < usuarios.length; i++) {
+          for (let j = 0; j < usuarios[i].length; j++) {
+            if (nombreABuscar === usuarios[i][j]) {
+              alert(`Los datos del usuario son:
+            - ID: ${usuarios[i][0]}
+            - NOMBRE: ${usuarios[i][1]}
+            - TELÉFONO: ${usuarios[i][2]}
+            - EMAIL: ${usuarios[i][3]}`);
+            }
+          }
+        }
+      }
+      else if (datoABuscar.toUpperCase() === "TELEFONO") {
+        let telefonoABuscar = prompt("Ingrese el TELEFONO a buscar");
+        for (let i = 0; i < usuarios.length; i++) {
+          for (let j = 0; j < usuarios[i].length; j++) {
+            if (telefonoABuscar === usuarios[i][j]) {
+              alert(`Los datos del usuario son:
+            - ID: ${usuarios[i][0]}
+            - NOMBRE: ${usuarios[i][1]}
+            - TELÉFONO: ${usuarios[i][2]}
+            - EMAIL: ${usuarios[i][3]}`);
+            }
+          }
+        }
+      }
+      else if (datoABuscar.toUpperCase() === "EMAIL") {
+        let emailABuscar = prompt("Ingrese el EMAIL a buscar");
+        for (let i = 0; i < usuarios.length; i++) {
+          for (let j = 0; j < usuarios[i].length; j++) {
+            if (emailABuscar === usuarios[i][j]) {
+              alert(`Los datos del usuario son:
+            - ID: ${usuarios[i][0]}
+            - NOMBRE: ${usuarios[i][1]}
+            - TELÉFONO: ${usuarios[i][2]}
+            - EMAIL: ${usuarios[i][3]}`);
+            }
+          }
+        }
+      }
+      else {
+        alert("El dato ingresado no existe");
+      }
+      realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?");
+     
     }
+  } while (realizarNuevamente.toUpperCase() !== "NO");
 
   if (accion.toUpperCase() === "SALIR") {
     alert("¡Gracias por visitarnos!");
