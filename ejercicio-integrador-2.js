@@ -39,11 +39,12 @@ Por favor, elija una de las siguientes operaciones:
       }
       if (confirmacionUsuarioAAgregar.toUpperCase() === "NO") {
         alert("La operación se ha cancelado");
+        break;
       }
       realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?");
-      
+
     }
-    
+
   } while (realizarNuevamente.toUpperCase() !== "NO");
 
   do {
@@ -112,14 +113,26 @@ Por favor, elija una de las siguientes operaciones:
       }
       else {
         alert("El dato ingresado no existe");
+        break;
       }
       realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?");
-     
     }
   } while (realizarNuevamente.toUpperCase() !== "NO");
 
+  do {
+    if (accion.toUpperCase() === "LISTAR") {
+      for (let i = 0; i < usuarios.length; i++) {
+        for (let j = 0; j < usuarios[i].length; j++) {
+          alert(usuarios[i][j])
+        }
+      }
+
+    }
+    realizarNuevamente = prompt("¿Desea realizar esta operación nuevamente?");
+  }
+  while (realizarNuevamente.toUpperCase() !== "NO");
+
   if (accion.toUpperCase() === "SALIR") {
     alert("¡Gracias por visitarnos!");
-    break;
   }
 }
