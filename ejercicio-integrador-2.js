@@ -1,3 +1,9 @@
+// Flor, excelente trabajo!
+// Te deje algunos comentarios, muy poquitos, porque todo funciona bien y el codigo esta
+// muy bien hecho. 
+// Felicitaciones!!
+
+
 let usuarios = [
   ["0", "Carla", "1545628984", "carla@gmail.com"],
   ["1", "Pedro", "1545251245", "pedro@gmail.com"],
@@ -22,6 +28,8 @@ Por favor, elija una de las siguientes operaciones:
 - SALIR del programa`);
   do {
     if (accion.toUpperCase() === "AGREGAR") {
+      
+      // esto es un detalle, pero como estas variables no cambian, deberian ser const 
       let nombreIngresado = prompt("Por favor ingrese el nombre");
       let telefonoIngresado = prompt("Por favor ingrese el número de teléfono");
       let emailIngresado = prompt("Por favor ingrese el e-mail");
@@ -59,6 +67,16 @@ Por favor, elija una de las siguientes operaciones:
         let idABuscar = prompt("Ingrese el ID a buscar");
         for (let i = 0; i < usuarios.length; i++) {
           for (let j = 0; j < usuarios[i].length; j++) {
+            
+            // aca le decimos al usuario que estamos buscando por id, 
+            // pero en realidad estamos buscando por todos los campos
+            // para ser solo por id deberia ser 
+            //if (idABuscar === usuarios[i][0]) {
+            // no tiene ninguna consecuencia grave, salvo
+            // que por ejemplo anotemos algun dato del usuario como un id
+            // por ejemplo si hago un usuario nuevo y le pongo 2 como telefono
+            // cuando busque por id 2 me va a aparecer ese usuario
+            // Pasa lo mismo en los otros campos de busqueda. 
             if (idABuscar === usuarios[i][j]) {
               alert(`Los datos del usuario son:
             - ID: ${usuarios[i][0]}
@@ -159,6 +177,8 @@ Por favor, elija una de las siguientes operaciones:
           if (confirmacionUsuarioAModificar.toUpperCase() === "SI") {
             usuarios[i] = usuarioModificado;
             alert("La operación ha sido exitosa")
+            
+            // recorda siempre borrar los console log antes de entregar un trabajo
             console.log(usuarios)
           }
 
